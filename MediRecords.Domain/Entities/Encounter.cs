@@ -13,11 +13,12 @@ public class Encounter
 
     public int PatientId { get; set; }
 
-   public int ProviderId { get; set; }
+    public int ProviderId { get; set; }
 
     public DateTime Date { get; set; }
 
     [Column(TypeName = "nvarchar(MAX)")]
     public string VisitType { get; set; }
+    
     public bool Status { get; set; }
 }
