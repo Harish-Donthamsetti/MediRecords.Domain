@@ -12,7 +12,6 @@ public class NursingNote
     public int NursingNoteId { get; set; } //NursingNoteId Primary Key for Note IDs
     
 
-
     [Required]
     public int EncounterId { get; set; } // IDs for every Encounters
 
@@ -26,5 +25,5 @@ public class NursingNote
     public string RecordedBy { get; set; } // Name of the person who recorded this note 
 
 
-    public DateTime RecordedDate { get; set; } // Date of the Note record
+    public DateTime RecordedDate { get; set; } // Date of the Note record.
 }
