@@ -16,6 +16,8 @@ public class User
     public string Name { get; set; }
 
     [Required]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+    [ForeignKey("RoleIdNavigation")]
     public int RoleId { get; set; }
 
     [Required]
@@ -32,4 +34,10 @@ public class User
     public string PasswordSalt { get; set; }
     
     public bool Status { get; set; }
+
+    /*-------------------------Foreign Key References--------------------------------*/
+    // Ref: User.RoleId > UserRole.RoleId
+    public virtual UserRole? RoleIdNavigation { get; set; }
+    public virtual ICollection<AuditLog> AuditLogs { get; set; } = new List<AuditLog>();
+    
 }
