@@ -4,23 +4,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MediRecords.Domain.Entities;
 
-[Table("MedicalHistory")]
-public class MedicalHistory
+[Table("CarePlan")]
+public class CarePlan
 {
     [Key]
-    public int HistoryId { get; set; }
+    public int CarePlanId { get; set; }
 
     [Required]
     [ForeignKey("PatientIdNavigation")]
     public int PatientId { get; set; }
 
-    [Required]
-    [MaxLength(255)]
-    public string Condition { get; set; }
+    [Column(TypeName = "VARCHAR(MAX)")]
+    public string GoalsJSON { get; set; }
 
-    public string? Notes { get; set; }
+    [Column(TypeName = "VARCHAR(MAX)")]
+    public string Instructions { get; set; }
 
-    public DateTime RecordedDate { get; set; } = DateTime.Now;
-
+    // 0: Active, 1: Completed
+    public bool Status { get; set; }
     public virtual Patient? PatientIdNavigation { get; set; }
 }

@@ -4,12 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MediRecords.Domain.Entities;
 
-
-[Table("ProblemList")]
-public class ProblemList
+[Table("Immunization")]
+public class Immunization
 {
     [Key]
-    public int ProblemId { get; set; }
+    public int ImmunizationId { get; set; }
 
     [Required]
     [ForeignKey("PatientIdNavigation")]
@@ -17,15 +16,14 @@ public class ProblemList
 
     [Required]
     [MaxLength(255)]
-    public string Diagnosis { get; set; }
+    public string Vaccine { get; set; }
 
-    [MaxLength(20)]
-    public string Status { get; set; } // Active, Resolved, Chronic
+    [MaxLength(50)]
+    public string Dose { get; set; }
 
-    [Required]
-    public DateTime StartDate { get; set; }
+    public DateTime GivenDate { get; set; }
 
-    public DateTime? EndDate { get; set; }
-
+    // 0: Pending, 1: Administered
+    public bool Status { get; set; }
     public virtual Patient? PatientIdNavigation { get; set; }
 }
