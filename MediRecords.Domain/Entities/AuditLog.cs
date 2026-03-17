@@ -11,6 +11,7 @@ public class AuditLog
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int AuditId { get; set; }
 
+    [ForeignKey("UserIdNavigation")]
     public int UserId { get; set; }
 
     [Column(TypeName = "VARCHAR(100)")]
@@ -20,4 +21,7 @@ public class AuditLog
     public string Resource { get; set; }
 
     public DateTime TimeStamp { get; set; }
+
+    /*-------------------------Foreign Key References--------------------------------*/
+    public virtual User? UserIdNavigation { get; set; }
 }
