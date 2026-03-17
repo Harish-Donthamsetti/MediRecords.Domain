@@ -11,9 +11,11 @@ public class Appointment
     public int AppointmentId { get; set; }
 
     [Required]
+    [ForeignKey("PatientIdNavigation")]
     public int PatientId { get; set; }
 
     [Required]
+    [ForeignKey("ProviderIdNavigation")]
     public int ProviderId { get; set; }
 
     [Required]
@@ -26,4 +28,7 @@ public class Appointment
 
     [Required]
     public bool Status { get; set; }
+
+    public virtual User? ProviderIdNavigation { get; set; }
+    public virtual Patient? PatientIdNavigation { get; set; }
 }
