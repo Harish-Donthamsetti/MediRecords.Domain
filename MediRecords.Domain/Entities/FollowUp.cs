@@ -11,6 +11,7 @@ public class FollowUp
     public int FollowupId { get; set; }
 
     [Required]
+    [ForeignKey("EncounterIdNavigation")]
     public int EncounterId { get; set; }
 
     public DateTime RecommendedDate { get; set; }
@@ -19,8 +20,6 @@ public class FollowUp
     public string Notes { get; set; }
 
     public DateTime CreatedDate { get; set; } = DateTime.Now;
-
-    // Note: Assuming an Encounter entity exists to link as a Foreign Key
-    // [ForeignKey("EncounterId")]
-    // public virtual Encounter Encounter { get; set; }
+  
+    public virtual Encounter? EncounterIdNavigation { get; set; }
 }

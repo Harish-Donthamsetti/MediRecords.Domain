@@ -11,6 +11,7 @@ public class MedicalHistory
     public int HistoryId { get; set; }
 
     [Required]
+    [ForeignKey("PatientIdNavigation")]
     public int PatientId { get; set; }
 
     [Required]
@@ -21,6 +22,5 @@ public class MedicalHistory
 
     public DateTime RecordedDate { get; set; } = DateTime.Now;
 
-    [ForeignKey("PatientId")]
-    public virtual Patient Patient { get; set; }
+    public virtual Patient? PatientIdNavigation { get; set; }
 }

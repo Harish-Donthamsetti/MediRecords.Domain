@@ -11,6 +11,7 @@ public class CarePlan
     public int CarePlanId { get; set; }
 
     [Required]
+    [ForeignKey("PatientIdNavigation")]
     public int PatientId { get; set; }
 
     [Column(TypeName = "VARCHAR(MAX)")]
@@ -21,7 +22,5 @@ public class CarePlan
 
     // 0: Active, 1: Completed
     public bool Status { get; set; }
-
-    [ForeignKey("PatientId")]
-    public virtual Patient Patient { get; set; }
+    public virtual Patient? PatientIdNavigation { get; set; }
 }

@@ -11,6 +11,7 @@ public class Immunization
     public int ImmunizationId { get; set; }
 
     [Required]
+    [ForeignKey("PatientIdNavigation")]
     public int PatientId { get; set; }
 
     [Required]
@@ -22,9 +23,7 @@ public class Immunization
 
     public DateTime GivenDate { get; set; }
 
-    // 0: Pending, 1: Administered
     public bool Status { get; set; }
-
-    [ForeignKey("PatientId")]
-    public virtual Patient Patient { get; set; }
+  
+    public virtual Patient? PatientIdNavigation { get; set; }
 }

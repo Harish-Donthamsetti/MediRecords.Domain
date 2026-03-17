@@ -12,6 +12,7 @@ public class ProblemList
     public int ProblemId { get; set; }
 
     [Required]
+    [ForeignKey("PatientIdNavigation")]
     public int PatientId { get; set; }
 
     [Required]
@@ -26,6 +27,5 @@ public class ProblemList
 
     public DateTime? EndDate { get; set; }
 
-    [ForeignKey("PatientId")]
-    public virtual Patient Patient { get; set; }
+    public virtual Patient? PatientIdNavigation { get; set; }
 }
