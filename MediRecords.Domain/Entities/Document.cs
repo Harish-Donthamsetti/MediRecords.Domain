@@ -11,8 +11,10 @@ public class Document
     public int DocumentID { get; set; }
 
     [Required]
+    [ForeignKey("PatientNavigation")]
     public int PatientID { get; set; }
 
+    [ForeignKey("EncounterNavigation")]
     public int? EncounterID { get; set; }
 
     [Required]
@@ -34,4 +36,8 @@ public class Document
 
     [Required]
     public bool Status { get; set; }
+
+    public virtual Patient?PatientNavigation{get;set;}
+    public virtual Encounter?EncounterNavigation{get;set;}
+
 }
