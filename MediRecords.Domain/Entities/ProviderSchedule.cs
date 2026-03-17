@@ -11,6 +11,7 @@ public class ProviderSchedule
     public int ScheduleId { get; set; }
 
     [Required]
+    [ForeignKey("ProviderIdNavigation")]
     public int ProviderId { get; set; }
 
     [Required]
@@ -31,4 +32,6 @@ public class ProviderSchedule
 
     [Required]
     public bool Status { get; set; }
+
+    public virtual User? ProviderIdNavigation { get; set; }
 }
