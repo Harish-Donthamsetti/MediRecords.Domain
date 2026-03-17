@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Xsl;
 
 namespace MediRecords.Domain.Entities;
 
@@ -11,6 +12,7 @@ public class ImagingOrder
     public int ImagingOrderId { get; set; }
 
     [Required]
+    [ForeignKey("EncounterIdNavigation")]
     public int EncounterId { get; set; }
 
     [Column(TypeName = "VARCHAR(100)")]
@@ -22,4 +24,9 @@ public class ImagingOrder
     public DateTime OrderedDate { get; set; }
 
     public bool Status { get; set; }
+
+    /*-------------------------Foreign Key References--------------------------------*/
+    public virtual ICollection<ImagingReport> ImagingReports { get; set; } = new List<ImagingReport>();
+    public virtual Encounter? EncounterIdNavigation { get; set; }
+
 }

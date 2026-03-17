@@ -22,6 +22,6 @@ public class AuditLog
 
     public DateTime TimeStamp { get; set; }
 
-    //Ref: AuditLog.UserId > User.UserId
+    /*-------------------------Foreign Key References--------------------------------*/
     public virtual User? UserIdNavigation { get; set; }
 }

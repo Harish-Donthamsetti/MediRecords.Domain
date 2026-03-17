@@ -11,6 +11,7 @@ public class ImagingReport
     public int ReportId { get; set; }
 
     [Required]
+    [ForeignKey("ImagingOrderIdNavigation")]
     public int ImagingOrderId { get; set; }
 
     [Column(TypeName = "VARCHAR(MAX)")]
@@ -23,5 +24,6 @@ public class ImagingReport
 
     public bool Status { get; set; }
 
-    
+    /*-------------------------Foreign Key References--------------------------------*/
+    public virtual ImagingOrder? ImagingOrderIdNavigation { get; set; }
 }

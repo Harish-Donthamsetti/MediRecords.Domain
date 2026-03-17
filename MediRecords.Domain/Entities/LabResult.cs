@@ -11,6 +11,7 @@ public class LabResult
     public int ResultId { get; set; }
 
     [Required]
+    [ForeignKey("LabOrderIdNavigation")]
     public int LabOrderId { get; set; }
 
     [Column(TypeName = "VARCHAR(MAX)")]
@@ -19,4 +20,7 @@ public class LabResult
     public DateTime ResultDate { get; set; }
     
     public bool Status { get; set; }  // Final/Corrected
+
+    /*-------------------------Foreign Key References--------------------------------*/
+    public virtual LabOrder? LabOrderIdNavigation { get; set; }
 }
