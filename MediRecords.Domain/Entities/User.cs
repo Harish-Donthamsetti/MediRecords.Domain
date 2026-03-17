@@ -46,6 +46,5 @@ public class User
     public virtual ICollection<LabOrder> LabOrders = new List<LabOrder>();
     public virtual ICollection<Notification> Notifications = new List<Notification>();
 
-
     public virtual UserRole? RoleIdNavigation { get; set; }
 }
