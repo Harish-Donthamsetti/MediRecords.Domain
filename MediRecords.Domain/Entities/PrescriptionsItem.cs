@@ -11,23 +11,23 @@ namespace MediRecords.Domain.Entities
         public int ItemId { get; set; }
 
         [Required]
+        [ForeignKey("PrescriptionIdNavigation")]
         public int PrescriptionId { get; set; }
 
-        [ForeignKey("PrescriptionId")]
-        public virtual Prescriptions Prescription { get; set; }
-
         [Required]
-        [MaxLength(100)]
+        [Column(TypeName = "VARCHAR(100)")]
         public string DrugName { get; set; }
 
-        [MaxLength(50)]
+        [Column(TypeName = "VARCHAR(50)")]
         public string Dose { get; set; }
 
-        [MaxLength(50)] 
+        [Column(TypeName = "VARCHAR(50)")]
         public string Frequency { get; set; }
 
         public int DurationDays { get; set; }
         
         public string Instructions { get; set; }
+
+        public virtual Prescription? PrescriptionIdNavigation { get; set; }
     }
 }
