@@ -11,22 +11,20 @@ namespace MediRecords.Domain.Entities
         public int MedId { get; set; }
 
         [Required]
+        [ForeignKey("PatientIdNavigation")]
         public int PatientId { get; set; }
         
-        [ForeignKey("PatientId")]
-        public virtual Patient Patient { get; set; }
-
         [Required]
-        [MaxLength(100)]
+        [Column(TypeName = "VARCHAR(100)")]
         public string DrugName { get; set; }
 
-        [MaxLength(50)]
+        [Column(TypeName = "VARCHAR(50)")]
         public string Dose { get; set; }
 
-        [MaxLength(50)]
+        [Column(TypeName = "VARCHAR(50)")]
         public string Frequency { get; set; }
 
-        [MaxLength(50)]
+        [Column(TypeName = "VARCHAR(50)")]
         public string Route { get; set; }
 
         public DateTime StartDate { get; set; }
@@ -34,5 +32,7 @@ namespace MediRecords.Domain.Entities
         public DateTime? EndDate { get; set; }
         
         public bool IsActive { get; set; }
+
+        public virtual Patient? PatientIdNavigation { get; set; }
     }
 }

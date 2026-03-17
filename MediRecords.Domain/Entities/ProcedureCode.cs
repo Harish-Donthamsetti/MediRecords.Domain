@@ -20,5 +20,5 @@ public class ProcedureCode
     [Column(TypeName = "DECIMAL(18,2)")]
     public decimal Price { get; set; }
 
-    public virtual ICollection<VisitChargeRef> VisitCharges { get; set; } = new List<VisitChargeRef>();
+    public virtual ICollection<VisitChargeRef> VisitChargeRefs { get; set; } = new List<VisitChargeRef>();
 }

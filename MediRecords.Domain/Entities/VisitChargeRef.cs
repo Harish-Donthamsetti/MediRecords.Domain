@@ -12,8 +12,11 @@ public class VisitChargeRef
     [Key]
     public int ChargeId { get; set; }
 
+    
+    [ForeignKey("EncounterIdNavigation")]
     public int EncounterId { get; set; }
 
+    [ForeignKey("ProcedureCodeNavigation")]
     public int CodeId { get; set; }
 
     [Column(TypeName = "DECIMAL(18,2)")]
@@ -21,9 +24,7 @@ public class VisitChargeRef
 
     public bool Status { get; set; }
 
-    [ForeignKey("EncounterId")]
-    public virtual Encounter Encounter { get; set; }
+    public virtual Encounter? EncounterIdNavigation { get; set; }
 
-    [ForeignKey("CodeId")]
-    public virtual ProcedureCode ProcedureCode { get; set; }
+    public virtual ProcedureCode? ProcedureCodeNavigation { get; set; }
 }
