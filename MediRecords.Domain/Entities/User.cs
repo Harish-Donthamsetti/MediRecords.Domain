@@ -36,6 +36,16 @@ public class User
     public bool Status { get; set; }
 
     /*-------------------------Foreign Key References--------------------------------*/
-    public virtual UserRole? RoleIdNavigation { get; set; }
     public virtual ICollection<AuditLog> AuditLogs { get; set; } = new List<AuditLog>();
+    public virtual ICollection<ProviderSchedule> ProviderSchedules = new List<ProviderSchedule>();
+    public virtual ICollection<Patient> Patients = new List<Patient>();
+    public virtual ICollection<ClinicReport> ClinicReports = new List<ClinicReport>();
+    public virtual ICollection<ClinicalTemplate> ClinicalTemplates = new List<ClinicalTemplate>();
+    public virtual ICollection<Encounter> Encounters = new List<Encounter>();
+    public virtual ICollection<Appointment> Appointment = new List<Appointment>();
+    public virtual ICollection<LabOrder> LabOrders = new List<LabOrder>();
+    public virtual ICollection<Notification> Notifications = new List<Notification>();
+
+
+    public virtual UserRole? RoleIdNavigation { get; set; }
 }
