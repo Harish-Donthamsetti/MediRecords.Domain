@@ -23,7 +23,7 @@ public class Immunization
 
     public DateTime GivenDate { get; set; }
 
-    // 0: Pending, 1: Administered
     public bool Status { get; set; }
+  
     public virtual Patient? PatientIdNavigation { get; set; }
 }

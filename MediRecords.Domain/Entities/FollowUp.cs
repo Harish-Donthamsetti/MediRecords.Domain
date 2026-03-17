@@ -20,5 +20,6 @@ public class FollowUp
     public string Notes { get; set; }
 
     public DateTime CreatedDate { get; set; } = DateTime.Now;
+  
     public virtual Encounter? EncounterIdNavigation { get; set; }
 }
