@@ -10,6 +10,8 @@ public class SOAPNote
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int NoteId { get; set; }
     
+    [Required]
+    [ForeignKey("EncounterIdNavigation")]
     public int EncounterId { get; set; }
 
     [Column(TypeName = "nvarchar(max)")]
@@ -27,4 +29,5 @@ public class SOAPNote
     public DateTime CreatedDate { get; set; }
 
     public bool Status { get; set; }
+    public virtual Encounter? EncounterIdNavigation { get; set; }
 }
