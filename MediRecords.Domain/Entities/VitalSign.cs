@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MediRecords.Domain.Entities;
 
 namespace MediRecords.Models;
 
@@ -12,6 +13,8 @@ public class VitalSign
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int VitalId { get; set; } // Primary Key ID for all Vital Signs.
     
+    [Required]
+    [ForeignKey("EncounterNavigation")]
     public int EncounterId { get; set; } // ID of the Encounter.
 
     [Required]
@@ -31,4 +34,8 @@ public class VitalSign
     [Required]
     [Column(TypeName="VARCHAR(50)")]
     public string RecordedBy { get; set; } // Name of the User who recorded the Vitals.
+
+    //Foreign Key
+    public virtual Encounter? EncounterNavigation { get; set; }
+
 }

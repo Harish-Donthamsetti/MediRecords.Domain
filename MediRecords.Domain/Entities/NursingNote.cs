@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MediRecords.Domain.Entities;
 
 namespace MediRecords.Models;
 
@@ -12,6 +13,7 @@ public class NursingNote
     public int NursingNoteId { get; set; } //NursingNoteId Primary Key for Note IDs
     
     [Required]
+    [ForeignKey("EncounterNavigation")]
     public int EncounterId { get; set; } // IDs for every Encounters
 
     [Column(TypeName ="VARCHAR(50)")]
@@ -22,4 +24,7 @@ public class NursingNote
     public string RecordedBy { get; set; } // Name of the person who recorded this note 
 
     public DateTime RecordedDate { get; set; } // Date of the Note record.
+
+    // Foreign Keys
+    public virtual Encounter? EncounterNavigation { get; set; }
 }
