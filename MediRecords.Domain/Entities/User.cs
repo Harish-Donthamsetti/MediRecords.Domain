@@ -27,10 +27,10 @@ public class User
     [Column(TypeName = "VARCHAR(15)")]
     public string Phone { get; set; }
 
-    [Column(TypeName = "VARCHAR(MAX)")]
+    [Column(TypeName = "NVARCHAR(MAX)")]
     public string PasswordHash { get; set; }
     
-    [Column(TypeName = "VARCHAR(MAX)")]
+    [Column(TypeName = "NVARCHAR(MAX)")]
     public string PasswordSalt { get; set; }
     
     public bool Status { get; set; }
