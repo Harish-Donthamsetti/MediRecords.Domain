@@ -42,7 +42,7 @@ public class User
     public virtual ICollection<ClinicReport> ClinicReports { get; set; }= new List<ClinicReport>();
     public virtual ICollection<ClinicalTemplate> ClinicalTemplates { get; set; } = new List<ClinicalTemplate>();
     public virtual ICollection<Encounter> Encounters { get; set; } = new List<Encounter>();
-    public virtual ICollection<Appointment> Appointment { get; set; } = new List<Appointment>();
+    public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
     public virtual ICollection<LabOrder> LabOrders { get; set; } = new List<LabOrder>();
     public virtual ICollection<Notification> Notifications { get; set; } = new List<Notification>();
 
